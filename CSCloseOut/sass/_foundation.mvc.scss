@@ -1,0 +1,23 @@
+/* -------------------------------------------------- 
+   This file contains CSS overrides that are specific
+   to making sure that Foundation works well with MVC
+-----------------------------------------------------
+*/
+
+/* Overrides: Errors */
+
+.input-validation-error, input.input-validation-error, textarea.input-validation-error {
+  /*border-color:$alert-color;
+  background-color:$alert-color-lightest;*/
+}
+
+.field-validation-error {
+  display: block;
+  padding: 6px 4px;
+  margin-top: -13px;
+  margin-bottom: 12px;
+  background: #c60f13;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}

@@ -1,0 +1,6 @@
+@media only screen and (max-width: 768px) {
+  /* line 5, ../sass/fixedwidth.scss */
+  .wrapper {
+    width: 768px;
+  }
+}

@@ -1,0 +1,11 @@
+
+//This sets the minimum width for a fixed-width layout
+@media only screen 
+and (max-width : 768px) {
+    .wrapper {
+        width: 768px;
+    }
+}
+
+@media all {
+}

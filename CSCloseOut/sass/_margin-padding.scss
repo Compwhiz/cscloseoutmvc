@@ -1,0 +1,99 @@
+
+
+.exl-gutter-wrap {
+    padding: 0.5rem 0.5rem !important;
+}
+
+.exl-gutter-wrap-lr {
+    padding: 0 0.5rem !important;
+}
+
+.exl-padding {
+    padding: 1.0rem !important;
+}
+
+.exl-padding-small {
+    padding: 0.5rem !important;
+}
+.exl-padding-tiny {
+    padding: 0.25rem;
+}
+.exl-margin {
+    margin: 1.0rem !important;
+}
+
+.exl-margin-small {
+    margin: 0.5rem !important;
+}
+.exl-margin-tiny {
+    margin: 0.25rem;
+}
+.exl-top-padding {
+    padding-top: 1.0rem !important;
+}
+
+.exl-top-padding-small {
+    padding-top: 0.5rem !important;
+}
+.exl-top-padding-tiny {
+    padding-top: 0.25rem;
+}
+
+.exl-top-margin {
+    margin-top: 1rem !important;
+}
+
+.exl-top-margin-small {
+    margin-top: 0.5rem !important;
+}
+.exl-top-margin-tiny {
+    margin-top: 0.25rem;
+}
+.exl-bot-padding {
+    padding-bottom: 1.0rem;
+}
+
+.exl-bot-padding-small {
+    padding-bottom: 0.5rem;
+}
+
+.exl-bot-margin {
+    margin-bottom: 1rem;
+}
+
+.exl-bot-margin-small {
+    margin-bottom: 0.5rem;
+}
+.exl-bot-margin-tiny {
+    margin-bottom: 0.25rem;
+}
+.exl-right-margin {
+    margin-right: 1rem;
+}
+
+.exl-right-margin-small {
+    margin-right: 0.5rem;
+}
+.exl-right-margin-tiny {
+    margin-right: 0.25rem;
+}
+.exl-vertical-padding {
+    @extend .exl-bot-padding;
+    @extend .exl-top-padding;
+}
+
+.exl-vertical-padding-small {
+    @extend .exl-bot-padding-small;
+    @extend .exl-top-padding-small;
+}
+
+.exl-no-borders {
+    border: none;
+}
+
+.exl-no-padding {
+    padding: 0 !important;
+}
+.exl-no-margin {
+    margin: 0 !important;
+}

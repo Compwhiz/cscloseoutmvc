@@ -1,31 +1,45 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div data-ng-controller="MainController as main">
+    <div class="row">
+        <div class="columns">
+            <input type="text" name="showCode" class="inputShowCode" data-ng-model="main.showCode" placeholder="Show Code" />
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="row exl-padding">
+        <div class="columns">
+            <ul class="button-group toggle even-4 text-center" data-toggle="buttons-radio">
+                <li>
+                    <input type="radio" id="callTypeAttendee" name="r-group" data-toggle="button">
+                    <label class="button" for="callTypeAttendee">Attendee</label>
+                </li>
+                <li>
+                    <input type="radio" id="callTypeExhibitor" name="r-group" data-toggle="button">
+                    <label class="button" for="callTypeExhibitor">Exhibitor</label>
+                </li>
+                <li>
+                    <input type="radio" id="callTypeLeadSales" name="r-group" data-toggle="button">
+                    <label class="button" for="callTypeLeadSales">Lead Sales</label>
+                </li>
+                <li>
+                    <input type="radio" id="callTypeTrafficBoost" name="r-group" data-toggle="button">
+                    <label class="button" for="callTypeTrafficBoost">Traffic Boost</label>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="row" data-ng-show="main.currentOptions.length">
+        <div class="columns">
+            <a class="button" data-ng-click="main.goBack()"><span class="fa fa-chevron-left"></span> Back</a>
+            <pre>@*{{main.currentOptions|json}}*@</pre>
+            <ul class="small-block-grid-3 closeOutOptionList">
+                <li data-ng-repeat="option in main.currentOptions" class="closeOutOption">
+                    <a href="#" class="button large expand" data-ng-click="main.selectOption(option)">
+                        {{option.description}}
+                    </a>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
