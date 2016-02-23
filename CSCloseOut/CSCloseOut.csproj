@@ -133,6 +133,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Views\SettingsModal.html" />
     <Content Include="Content\fixedwidth.css" />
     <Content Include="Content\fonts\EventXL2.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -142,6 +143,9 @@
     <Content Include="Content\Site2.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="sass\foundation\_settings.css">
+      <DependentUpon>_settings.scss</DependentUpon>
+    </Content>
     <Content Include="sass\Site2.css">
       <DependentUpon>Site2.scss</DependentUpon>
     </Content>
@@ -326,6 +330,8 @@
   <ItemGroup>
     <TypeScriptCompile Include="App\App.ts" />
     <TypeScriptCompile Include="App\Controllers\MainController.ts" />
+    <TypeScriptCompile Include="App\Controllers\RootController.ts" />
+    <TypeScriptCompile Include="App\Controllers\SettingsModalController.ts" />
     <TypeScriptCompile Include="App\Factories\CloseOutFactory.ts" />
     <TypeScriptCompile Include="Models\CloseOutOption.cs.d.ts">
       <DependentUpon>CloseOutOption.cs</DependentUpon>

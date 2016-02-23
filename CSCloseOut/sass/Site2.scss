@@ -70,7 +70,7 @@ input.inputShowCode {
     }
 }
 
-$selected-color: salmon;
+$selected-color: darken($button-bg-color, 10%);
 
 input[data-toggle] {
   display: none;

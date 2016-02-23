@@ -1,14 +1,20 @@
 ﻿module csCloseOut {
 
     export class MainController {
-        static $inject = ['CloseOutFactory'];
+        static $inject = ['$rootScope', 'CloseOutFactory'];
 
         codeStack = [];
         closeOutOptions = [];
         currentOptions = [];
+        formShowInfo: ng.IFormController;
+        settings: any = {};
 
-        constructor(private CloseOutFactory: csCloseOut.CloseOutFactory) {
-            this.getCloseOutOptions();
+        constructor(private $rootScope, private CloseOutFactory: csCloseOut.CloseOutFactory) {
+            this.settings = angular.copy($rootScope.settings);
+
+            $rootScope.$on('SETTINGS_CHANGED', () => {
+                this.settings = angular.copy(this.$rootScope.settings);
+            });
         }
 
         private getCloseOutOptions() {
@@ -35,6 +41,14 @@
             }
         }
 
+        public submitFormInfo() {
+            if (!this.formShowInfo.$valid) {
+                return;
+            }
+
+            this.getCloseOutOptions();
+        }
+
         public selectOption(option: server.CloseOutOption) {
             this.codeStack.push(option);
             if (Array.isArray(option.children) && option.children.length) {
@@ -52,8 +66,18 @@
             }
         }
 
-        public goBack() {
-            let previous = this.codeStack.pop();
+        public goBack(id?) {
+            let previous;
+            if (id) {
+                for (var i in this.codeStack) {
+                    if (this.codeStack[i].id === id) {
+                        previous = this.codeStack.splice(i);
+                        break;
+                    }
+                }
+            } else {
+                previous = this.codeStack.pop();
+            }
             if (previous) {
                 let prevOptions = this.getPreviousOptions(previous.id);
                 if (prevOptions) {

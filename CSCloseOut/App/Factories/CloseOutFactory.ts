@@ -1,7 +1,7 @@
 ﻿module csCloseOut {
     export class CloseOutFactory {
         public static $inject = ['$http', '$q'];
-        apiBase = 'api/CloseOut/';
+        apiBase = '/api/CloseOut/';
 
         constructor(private $http: ng.IHttpService, private $q: ng.IQService) { }
 

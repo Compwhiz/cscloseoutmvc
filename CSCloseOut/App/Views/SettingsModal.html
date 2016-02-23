@@ -1,0 +1,21 @@
+﻿<div>
+    <h3>Settings</h3>
+    <div class="row">
+        <div class="columns large-6">
+            <p><strong>Show Code/Client Event</strong></p>
+            <input type="radio" name="showCode" id="showCode" data-ng-model="ctrl.settings.showCodeType" value="SHOWCODE" />
+            <label for="showCode">Show Code</label>
+            <input type="radio" name="showCode" id="clientEvent" data-ng-model="ctrl.settings.showCodeType" value="CLIENTEVENT" />
+            <label for="clientEvent">Client/Event</label>
+        </div>
+        <div class="columns large-6">
+            <p><strong>Call Inquiry Type Buttons</strong></p>
+            <input type="radio" name="inquiryTypeButtons" id="pushButtons" data-ng-model="ctrl.settings.inquiryTypeButtons" value="PUSH" />
+            <label for="pushButtons">Push Buttons</label>
+            <input type="radio" name="inquiryTypeButtons" id="radioButtons" data-ng-model="ctrl.settings.inquiryTypeButtons" value="RADIO" />
+            <label for="radioButtons">Radio Buttons</label>
+        </div>
+    </div>
+    <a class="button" data-ng-click="ctrl.done()">Done</a>
+    <a class="button secondary" data-ng-click="ctrl.cancel()">Cancel</a>
+</div>

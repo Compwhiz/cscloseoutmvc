@@ -60,12 +60,32 @@ namespace CSCloseOut.Controllers
                 Description = "Lead Sales"
             };
 
-            leadOption.AddChildOption(new CloseOutOption()
+            var swapOption = new CloseOutOption()
             {
                 ID = 31,
                 Code = "SWAP",
                 Description = "SWAP issues"
+            };
+
+            swapOption.AddChildOption(new CloseOutOption()
+            {
+                ID = 301,
+                Code = "SWAPCHILD1",
+                Description = "Swap Child Option 1"
             });
+            swapOption.AddChildOption(new CloseOutOption()
+            {
+                ID = 302,
+                Code = "SWAPCHILD2",
+                Description = "Swap Child Option 2"
+            });
+            swapOption.AddChildOption(new CloseOutOption()
+            {
+                ID = 303,
+                Code = "SWAPCHILD3",
+                Description = "Swap Child Option 3"
+            });
+            leadOption.AddChildOption(swapOption);
 
             leadOption.AddChildOption(new CloseOutOption()
             {
