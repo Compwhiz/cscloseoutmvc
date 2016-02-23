@@ -1,7 +1,7 @@
 ﻿module csCloseOut {
 
-    export class MainController {
-        static $inject = ['$rootScope', 'CloseOutFactory', 'toastr'];
+    export class MainAltController {
+        static $inject = ['$rootScope', 'CloseOutFactory', '$modal', 'toastr'];
 
         codeStack = [];
         closeOutOptions = [];
@@ -10,7 +10,7 @@
         settings: any = {};
         notes: string = '';
 
-        constructor(private $rootScope, private CloseOutFactory: csCloseOut.CloseOutFactory, private toastr) {
+        constructor(private $rootScope, private CloseOutFactory: csCloseOut.CloseOutFactory, private $modal, private toastr) {
             this.settings = angular.copy($rootScope.settings);
 
             $rootScope.$on('SETTINGS_CHANGED', () => {
@@ -90,8 +90,21 @@
                 if (this.notes) {
                     content += '\nNOTES: ' + this.notes;
                 }
-                this.resetCloseOutCodes();
-                this.toastr.success(content);
+
+                let modalInstance = this.$modal.open({
+                    templateUrl: '/App/Views/NotesModal.html',
+                    controller: 'NotesModalController',
+                    controllerAs: 'ctrl',
+                    resolve: {
+                        code: () => content
+                    }
+                });
+
+                modalInstance.result.then(notes => {
+                    debugger;
+                    this.resetCloseOutCodes();
+                    this.toastr.success(content);
+                });
             }
         }
 
@@ -125,5 +138,5 @@
 }
 
 (() => {
-    angular.module('csCloseOut').controller('MainController', csCloseOut.MainController);
+    angular.module('csCloseOut').controller('MainAltController', csCloseOut.MainAltController);
 })(); 

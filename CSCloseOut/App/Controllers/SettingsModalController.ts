@@ -1,6 +1,6 @@
 ﻿module csCloseOut {
     export class SettingsModalController {
-        public static $inject = ['$rootScope', '$modalInstance','options'];
+        public static $inject = ['$rootScope', '$modalInstance'];
 
         settings: any = {};
 

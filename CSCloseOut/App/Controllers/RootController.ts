@@ -11,12 +11,9 @@
 
         public openSettingsModal() {
             let modalInstance = this.$modal.open({
-                templateUrl: 'App/Views/SettingsModal.html',
+                templateUrl: '/App/Views/SettingsModal.html',
                 controller: 'SettingsModalController',
-                controllerAs: 'ctrl',
-                resolve: {
-                    options: () => this.$rootScope.settings
-                }
+                controllerAs: 'ctrl'
             });
 
             modalInstance.result.then(settings => {

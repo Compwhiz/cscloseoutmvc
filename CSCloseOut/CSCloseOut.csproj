@@ -133,7 +133,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\Views\NotesModal.html" />
     <Content Include="App\Views\SettingsModal.html" />
+    <Content Include="Content\angular-toastr.css" />
+    <Content Include="Content\angular-toastr.min.css" />
     <Content Include="Content\fixedwidth.css" />
     <Content Include="Content\fonts\EventXL2.svg" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
@@ -141,6 +144,8 @@
     <Content Include="Content\print.css" />
     <Content Include="Content\screen.css" />
     <Content Include="Content\Site2.css" />
+    <Content Include="Content\toastr.css" />
+    <Content Include="Content\toastr.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="sass\foundation\_settings.css">
@@ -153,6 +158,10 @@
       <DependentUpon>Site2.css</DependentUpon>
     </Content>
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-toastr.js" />
+    <Content Include="Scripts\angular-toastr.min.js" />
+    <Content Include="Scripts\angular-toastr.tpls.js" />
+    <Content Include="Scripts\angular-toastr.tpls.min.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="sass\fixedwidth.scss">
@@ -165,7 +174,6 @@
       <DebugInfo>False</DebugInfo>
     </Content>
     <Content Include="sass\font-awesome\font-awesome.scss" />
-    <Content Include="sass\font-awesome\vssver.scc" />
     <Content Include="sass\font-awesome\_animated.scss" />
     <Content Include="sass\font-awesome\_bordered-pulled.scss" />
     <Content Include="sass\font-awesome\_core.scss" />
@@ -295,17 +303,20 @@
     <Content Include="Content\fonts\fontawesome-webfont.ttf" />
     <Content Include="Content\fonts\fontawesome-webfont.woff" />
     <Content Include="Content\fonts\fontawesome-webfont.woff2" />
-    <Content Include="Content\fonts\vssver.scc" />
     <Content Include="Content\font-awesome" />
     <Content Include="sass\Site2.css.map">
       <DependentUpon>Site2.css</DependentUpon>
     </Content>
     <Content Include="sass\_margin-padding.scss" />
+    <Content Include="Content\toastr.scss" />
+    <Content Include="Content\toastr.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\lodash.core.js" />
     <Content Include="Scripts\lodash.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\toastr.js" />
+    <Content Include="Scripts\toastr.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -319,6 +330,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\MainAlt.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -329,13 +341,16 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="App\App.ts" />
+    <TypeScriptCompile Include="App\Controllers\MainAltController.ts" />
     <TypeScriptCompile Include="App\Controllers\MainController.ts" />
+    <TypeScriptCompile Include="App\Controllers\NotesModalController.ts" />
     <TypeScriptCompile Include="App\Controllers\RootController.ts" />
     <TypeScriptCompile Include="App\Controllers\SettingsModalController.ts" />
     <TypeScriptCompile Include="App\Factories\CloseOutFactory.ts" />
     <TypeScriptCompile Include="Models\CloseOutOption.cs.d.ts">
       <DependentUpon>CloseOutOption.cs</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\typings\angular-toastr\angular-toastr.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

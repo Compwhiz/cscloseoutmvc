@@ -3,5 +3,5 @@
 }
 
 (() => {
-    let app = angular.module('csCloseOut', ['mm.foundation']);
+    let app = angular.module('csCloseOut', ['mm.foundation','toastr']);
 })();

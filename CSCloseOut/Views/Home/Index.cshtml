@@ -2,7 +2,7 @@
     ViewBag.Title = "Home Page";
 }
 <div data-ng-controller="MainController as main">
-    <form name="main.formShowInfo" data-ng-submit="main.submitFormInfo()">
+    @*<form name="main.formShowInfo" data-ng-submit="main.submitFormInfo()">
         <div class="row">
             <div class="columns large-6">
                 <div data-ng-switch="main.settings.showCodeType">
@@ -76,28 +76,37 @@
             </div>
         </div>
     </form>
-    <hr />
-    <div class="row" data-ng-show="main.currentOptions.length">
+    <hr />*@
+    <div class="row" >
         <div class="columns">
             <div class="row">
                 <div class="columns small-2">
                     <a class="button small secondary expand" data-ng-click="main.goBack()" data-ng-disabled="!main.codeStack.length"><span class="fa fa-chevron-left"></span> Back</a>
                 </div>
                 <div class="columns small-10">
-                    <ul class="breadcrumbs">
+                    <ul class="breadcrumbs codeStack">
                         <li data-ng-repeat="code in main.codeStack">
                             <a data-ng-click="main.goBack(code.id)">{{code.code}}</a>
                         </li>
                     </ul>
                 </div>
             </div>
-            <ul class="small-block-grid-3 closeOutOptionList">
-                <li data-ng-repeat="option in main.currentOptions" class="closeOutOption">
-                    <a href="#" class="button large expand" data-ng-click="main.selectOption(option)">
-                        {{option.description}}
-                    </a>
-                </li>
-            </ul>
+            <div>
+            	<ul class="small-block-grid-3 closeOutOptionList">
+            	    <li data-ng-repeat="option in main.currentOptions" class="closeOutOption">
+                     <a class="button large expand" data-ng-click="main.selectOption(option)" style="background-color: {{option.colorHex}}">
+                         {{option.description}}
+                     </a>
+            	    </li>
+            	</ul>
+            </div>
+            <div>
+                <label><strong>Notes</strong></label>
+                <textarea rows="5" placeholder="Notes" data-ng-model="main.notes"></textarea>
+            </div>
+            <div>
+                <a class="button" data-ng-click="main.submitCode()">Submit</a>
+            </div>
         </div>
     </div>
 </div>

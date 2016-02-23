@@ -64,9 +64,14 @@ namespace CSCloseOut
             }.Include(
                  "~/Scripts/modernizr-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/toastr").Include(
+                "~/Scripts/toastr.js",
+                "~/Scripts/angular-toastr.tpls.js"));
+
             #region CSS
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                 "~/Content/Site2.css"));
+            bundles.Add(new StyleBundle("~/Content/css")
+                .Include("~/Content/toastr.css")
+                .Include("~/Content/Site2.css"));
             #endregion
         }
     }

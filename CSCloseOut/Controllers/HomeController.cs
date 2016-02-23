@@ -12,5 +12,10 @@ namespace CSCloseOut.Controllers
         {
             return View();
         }
+
+        public ActionResult MainAlt()
+        {
+            return View();
+        }
     }
 }

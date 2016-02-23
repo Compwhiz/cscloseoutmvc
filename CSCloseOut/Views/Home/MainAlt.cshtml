@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<div data-ng-controller="MainAltController as main">
+    @*<form name="main.formShowInfo" data-ng-submit="main.submitFormInfo()">
+            <div class="row">
+                <div class="columns large-6">
+                    <div data-ng-switch="main.settings.showCodeType">
+                        <div data-ng-switch-when="SHOWCODE">
+                            <label>
+                                <strong>Show Code</strong>
+                                <input type="text" id="showCode" name="showCode" data-ng-model="main.showCode" placeholder="Show Code" />
+                            </label>
+                        </div>
+                        <div class="row" data-ng-switch-when="CLIENTEVENT">
+                            <div class="columns large-6">
+                                <label>
+                                    <strong>Client</strong>
+                                    <input type="text" id="client" name="client" data-ng-model="main.client" placeholder="Client" />
+                                </label>
+                            </div>
+                            <div class="columns large-6">
+                                <label>
+                                    <strong>Event</strong>
+                                    <input type="text" id="event" name="event" data-ng-model="main.event" placeholder="Event" />
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="columns large-6">
+                    <label>
+                        <strong>Call Session ID</strong>
+                        <input type="text" id="callSessionID" name="callSessionID" data-ng-model="main.callSessionID" placeholder="Call Session ID" />
+                    </label>
+                </div>
+            </div>
+            <div class="row exl-padding">
+                <div class="columns">
+                    <label><strong>Call Inquiry Type</strong></label>
+                    <div data-ng-switch="main.settings.inquiryTypeButtons">
+                        <div data-ng-switch-when="RADIO">
+                            <input type="radio" id="callTypeAttendee" name="r-group" data-ng-model="main.inquiryType">
+                            <label for="callTypeAttendee">Attendee</label>
+                            <input type="radio" id="callTypeExhibitor" name="r-group" data-ng-model="main.inquiryType">
+                            <label for="callTypeExhibitor">Exhibitor</label>
+                            <input type="radio" id="callTypeLeadSales" name="r-group" data-ng-model="main.inquiryType">
+                            <label for="callTypeLeadSales">Lead Sales</label>
+                            <input type="radio" id="callTypeTrafficBoost" name="r-group" data-ng-model="main.inquiryType">
+                            <label for="callTypeTrafficBoost">Traffic Boost</label>
+                        </div>
+                        <div class="row" data-ng-switch-when="PUSH">
+                            <div class="columns large-3">
+                                <input type="radio" id="callTypeAttendee" name="r-group" data-toggle="button" data-ng-model="main.inquiryType">
+                                <label class="button secondary expand" for="callTypeAttendee">Attendee</label>
+                            </div>
+                            <div class="columns large-3">
+                                <input type="radio" id="callTypeExhibitor" name="r-group" data-toggle="button" data-ng-model="main.inquiryType">
+                                <label class="button secondary expand" for="callTypeExhibitor">Exhibitor</label>
+                            </div>
+                            <div class="columns large-3">
+                                <input type="radio" id="callTypeLeadSales" name="r-group" data-toggle="button" data-ng-model="main.inquiryType">
+                                <label class="button secondary expand" for="callTypeLeadSales">Lead Sales</label>
+                            </div>
+                            <div class="columns large-3">
+                                <input type="radio" id="callTypeTrafficBoost" name="r-group" data-toggle="button" data-ng-model="main.inquiryType">
+                                <label class="button secondary expand" for="callTypeTrafficBoost">Traffic Boost</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="columns">
+                    <input type="submit" value="Submit" class="button" />
+                </div>
+            </div>
+        </form>
+        <hr />*@
+    <div class="row">
+        <div class="columns">
+            <div class="row">
+                <div class="columns small-2">
+                    <a class="button small secondary expand" data-ng-click="main.goBack()" data-ng-disabled="!main.codeStack.length"><span class="fa fa-chevron-left"></span> Back</a>
+                </div>
+                <div class="columns small-10">
+                    <ul class="breadcrumbs codeStack">
+                        <li data-ng-repeat="code in main.codeStack">
+                            <a data-ng-click="main.goBack(code.id)">{{code.code}}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div>
+                <ul class="small-block-grid-3 closeOutOptionList">
+                    <li data-ng-repeat="option in main.currentOptions" class="closeOutOption">
+                        <a class="button large expand" data-ng-click="main.selectOption(option)" style="background-color: {{option.colorHex}}">
+                            {{option.description}}
+                            <span class="fa fa-square" data-ng-show="option.children.length === 0" style="font-size:0.65rem"></span>
+                            <span class="fa fa-th fa-lg" data-ng-show="option.children.length !== 0"></span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
