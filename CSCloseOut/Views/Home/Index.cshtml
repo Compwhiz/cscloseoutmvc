@@ -96,6 +96,8 @@
             	    <li data-ng-repeat="option in main.currentOptions" class="closeOutOption">
                      <a class="button large expand" data-ng-click="main.selectOption(option)" style="background-color: {{option.colorHex}}">
                          {{option.description}}
+                         <span class="fa fa-square" data-ng-show="option.children.length === 0" style="font-size:0.65rem"></span>
+                         <span class="fa fa-th fa-lg" data-ng-show="option.children.length !== 0"></span>
                      </a>
             	    </li>
             	</ul>

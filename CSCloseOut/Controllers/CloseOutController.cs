@@ -17,7 +17,7 @@ namespace CSCloseOut.Controllers
         const float SATURATION = 0.55f;
         const float BRIGHTNESS = 0.53f;
         const float HUE = 360f;
-        const int HUESTEP = 5;
+        const int HUESTEP = 50;
 
 
         [HttpGet]
