@@ -16,7 +16,7 @@ namespace CSCloseOut.Controllers
         private int idIndex = 1;
         const float SATURATION = 0.55f;
         const float BRIGHTNESS = 0.53f;
-        const float HUE = 360f;
+        const float HUEMAX = 360f;
         const int HUESTEP = 50;
 
 
@@ -85,7 +85,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "HOU",
                 Description = "Housing",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex), SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
 
             var webOption = new CloseOutOption()
@@ -111,7 +111,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "HOTEL",
                 Description = "Hotel",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex) % HUE, SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
             for (int i = 0; i < houHotelDescs.Length; i++)
             {
@@ -212,7 +212,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "REG",
                 Description = "Registration",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex), SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
 
             var regWebOption = new CloseOutOption()
@@ -220,7 +220,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "WEB",
                 Description = "Web",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex), SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
             for (int i = 0; i < regWebDescs.Length; i++)
             {
@@ -238,7 +238,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "ASSIST",
                 Description = "Assistance",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex), SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
             for (int i = 0; i < regAssistDescs.Length; i++)
             {
@@ -256,7 +256,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "SHOWREG",
                 Description = "Show Registration",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex), SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
             for (int i = 0; i < regShowRegDescs.Length; i++)
             {
@@ -274,7 +274,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "REQUEST",
                 Description = "Requests",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex), SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
             for (int i = 0; i < regRequestDescs.Length; i++)
             {
@@ -308,7 +308,7 @@ namespace CSCloseOut.Controllers
                 ID = idIndex++,
                 Code = "LEAD",
                 Description = "Lead Sales",
-                Color = ColorChanger.ColorFromAhsb(1, (HUESTEP + idIndex), SATURATION, BRIGHTNESS)
+                Color = this.GetColorFromID(idIndex)
             };
 
             var swapOption = new CloseOutOption()
@@ -375,6 +375,12 @@ namespace CSCloseOut.Controllers
                 Description = "Referral to Rep"
             });
             return leadOption;
+        }
+
+        [NonAction]
+        private Color GetColorFromID(int id)
+        {
+            return ColorChanger.ColorFromAhsb(1, (HUESTEP * id) % HUEMAX, SATURATION, BRIGHTNESS);
         }
     }
 }

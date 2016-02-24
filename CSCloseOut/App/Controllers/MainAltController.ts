@@ -87,9 +87,6 @@
                     codes.push(code.code);
                 }
                 let content = 'SUBMIT: ' + codes.join(':');
-                if (this.notes) {
-                    content += '\nNOTES: ' + this.notes;
-                }
 
                 let modalInstance = this.$modal.open({
                     templateUrl: '/App/Views/NotesModal.html',
@@ -101,7 +98,10 @@
                 });
 
                 modalInstance.result.then(notes => {
-                    debugger;
+                    if (notes) {
+                        content += '\nNOTES: ' + notes;
+                    }
+
                     this.resetCloseOutCodes();
                     this.toastr.success(content);
                 });

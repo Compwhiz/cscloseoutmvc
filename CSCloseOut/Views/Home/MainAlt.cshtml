@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Customer Service Close Out Codes";
 }
 <div data-ng-controller="MainAltController as main">
     @*<form name="main.formShowInfo" data-ng-submit="main.submitFormInfo()">
@@ -84,7 +84,7 @@
                     <a class="button small secondary expand" data-ng-click="main.goBack()" data-ng-disabled="!main.codeStack.length"><span class="fa fa-chevron-left"></span> Back</a>
                 </div>
                 <div class="columns small-10">
-                    <ul class="breadcrumbs codeStack">
+                    <ul class="breadcrumbs codeStack" data-ng-show="main.codeStack.length !== 0">
                         <li data-ng-repeat="code in main.codeStack">
                             <a data-ng-click="main.goBack(code.id)">{{code.code}}</a>
                         </li>
