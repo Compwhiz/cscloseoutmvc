@@ -80,30 +80,33 @@
                 this.currentOptions = option.children;
             }
             else {
-                // submit code
-                let code, codes = [];
-                this.codeStack.reverse();
-                while (code = this.codeStack.pop()) {
-                    codes.push(code.code);
-                }
-                let content = 'SUBMIT: ' + codes.join(':');
-
                 let modalInstance = this.$modal.open({
                     templateUrl: '/App/Views/NotesModal.html',
                     controller: 'NotesModalController',
                     controllerAs: 'ctrl',
                     resolve: {
-                        code: () => content
+                        code: () => ''//content
                     }
                 });
 
                 modalInstance.result.then(notes => {
+                    // submit code
+                    let code, codes = [];
+                    this.codeStack.reverse();
+                    while (code = this.codeStack.pop()) {
+                        codes.push(code.code);
+                    }
+                    let content = 'SUBMIT: ' + codes.join(':');
+
                     if (notes) {
                         content += '\nNOTES: ' + notes;
                     }
 
                     this.resetCloseOutCodes();
                     this.toastr.success(content);
+                }).catch(result => {
+                    // remove last code added
+                    this.codeStack.pop();
                 });
             }
         }
